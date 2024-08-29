@@ -1,5 +1,7 @@
 package com.kgisl.demo.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,7 +24,13 @@ public class PersonController {
 
     @Autowired
     private PersonService personService;
+
     // private PersonRepository personRepository;
+    @GetMapping
+    public ResponseEntity<List<Person>> getAllPersons() {
+        List<Person> persons = personService.getAllPersons();
+        return new ResponseEntity<>(persons, HttpStatus.OK);
+    }
 
     @PostMapping
     public ResponseEntity<Person> createPerson(@RequestBody Person person) {
