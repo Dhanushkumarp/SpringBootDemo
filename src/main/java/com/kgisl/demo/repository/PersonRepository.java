@@ -1,6 +1,5 @@
 package com.kgisl.demo.repository;
 
-
 import org.springframework.data.repository.ListCrudRepository;
 import org.springframework.stereotype.Repository;
 
