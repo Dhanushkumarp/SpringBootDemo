@@ -12,17 +12,17 @@ import org.springframework.stereotype.Component;
 @Component
 public class LoggingAspect {
 
-    Logger LOGGER = LoggerFactory.getLogger(this.getClass());
+    Logger la = LoggerFactory.getLogger(this.getClass());
 
     @Before(value = "execution(* com.kgisl.demo.service.PersonService.*(..))")
     public void beforeAdvice(JoinPoint joinPoint) {
         System.out.println("Before method:" + joinPoint.getSignature());
-        LOGGER.info("Before method:" + joinPoint.getSignature());
+        la.info("Before method:" + joinPoint.getSignature());
     }
 
     @After(value = "execution(* com.kgisl.demo.service.PersonService.*(..))")
     public void afterAdvice(JoinPoint joinPoint) {
         System.out.println("After method:" + joinPoint.getSignature());
-        LOGGER.info("After method:" + joinPoint.getSignature());
+        la.info("After method:" + joinPoint.getSignature());
     }
 }
